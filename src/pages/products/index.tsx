@@ -34,7 +34,7 @@ export default function ProductsPage() {
 
   // Phân trang
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5); // State cho số item mỗi trang
+  const [itemsPerPage, setItemsPerPage] = useState(10); // State cho số item mỗi trang
   const [filterTitle, setFilterTitle] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -45,7 +45,7 @@ export default function ProductsPage() {
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/posts"
       );
-      const data = response.data.slice(0, 20);
+      const data = response.data.slice(0, 50);
 
       const enhancedProducts: Product[] = data.map(
         (product: { id: any; title: any }) => {
